@@ -23,7 +23,14 @@ public class Account {
     @Email
     private String email;
      
-    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(firstName).append(" ").append(lastName)
+            .append(" ").append(age).append(" ").append(address)
+            .append(" ").append(email);
+        return sb.toString();
+    }
     
     public String getFirstName() {
         return firstName;
