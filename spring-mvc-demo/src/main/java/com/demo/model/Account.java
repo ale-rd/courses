@@ -1,11 +1,28 @@
 package com.demo.model;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
+
 public class Account {
     
+    @Size(min=5, max=10)
     private String firstName;
+    
+    @Size(min=5, max=10)
     private String lastName;
+    
+    @NotNull @Min(15)
+    private int age = 15;
+    
+    @Size(min=5, max=100)
     private String address;
+    
+    @Email
     private String email;
+     
     
     
     public String getFirstName() {
@@ -31,5 +48,11 @@ public class Account {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
     }
 }
