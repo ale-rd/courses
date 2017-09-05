@@ -7,12 +7,42 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>spring-mvc-demo Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  <!-- PROPIEDADES -->
+<!--   <properties> -->
+<!--   	<spring-mvc.version>4.0.6</spring-mvc.version> -->
+<!--   	<junit.version>3.8.1</junit.version> -->
+<!--   </properties> -->
+  
+  <!-- DEPENDENCIAS -->
   <dependencies>
+  	<!-- JUNIT -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
+    </dependency>
+    
+    <!-- SPRING-MVC -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>4.0.6.RELEASE</version>
+    </dependency>
+    
+    <!-- SERVLET API -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.1.0</version>
+    </dependency>
+    
+    <!-- JSTL -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
     </dependency>
   </dependencies>
   <build>
