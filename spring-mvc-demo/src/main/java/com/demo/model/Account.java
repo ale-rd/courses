@@ -26,9 +26,11 @@ public class Account {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(firstName).append(" ").append(lastName)
-            .append(" ").append(age).append(" ").append(address)
-            .append(" ").append(email);
+        sb.append("First name: ").append(firstName).append(", ")
+        .append("Last name: ").append(lastName).append(", ")
+        .append("Age: ").append(age).append(", ")
+        .append("Address: ").append(address).append(", ")
+        .append("Email: ").append(email).append(", ");
         return sb.toString();
     }
     

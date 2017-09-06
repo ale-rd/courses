@@ -59,6 +59,19 @@ public class MyDemoController {
         return "createAccount";
     }
     
+    @RequestMapping(value = "/doCreate")
+    public String doCreate(@ModelAttribute("aNewAccount") Account account) {
+        System.out.println("Do create - New account info - " + account.toString());
+        System.out.println("Do create - Going off and creating an actual account.");
+        return "redirect:accConfirm";
+    }
+    
+    @RequestMapping(value = "/accConfirm")
+    public String accountConfirmation(@ModelAttribute("aNewAccount") Account account ) {
+        System.out.println("Account confirmed - " + account.toString());
+        return "accountConfirmed";
+    }
+    
     @RequestMapping(value = "/accountCreated", method=RequestMethod.POST)
     public String performCreate(Account account) {
         System.out.println(account.toString());
