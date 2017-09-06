@@ -33,6 +33,7 @@ public class MyDemoController {
         int rand = new Random().nextInt(quotes.length);
         String randomQuote = quotes[rand];
         
+        System.out.println("Model updated with random quote.");
         model.addAttribute("randomQuote", randomQuote);
         return  "quote";
     }
@@ -100,4 +101,28 @@ public class MyDemoController {
         return "operationComplete"; 
     }
     
+    /**
+     * Agrega el atributo userName al modelo.
+     * 
+     * Se ejecuta antes que cualquier method handler de este controller.
+     * 
+     */
+    @ModelAttribute
+    public void setUserDetails(@RequestParam("userName") String userName, Model model) {
+        model.addAttribute("userName", userName);
+        
+        // Simulate going off and retrieving role based on userName
+        String userRole = "undefined";
+        if("Andy".equals(userName)) {
+            userRole = "Student";
+            
+        }else if("Jhon".equals(userName)) {
+            userRole = "Teacher";
+            
+        }else if("Allana".equals(userName)) {
+            userRole = "Dean";
+        }
+        
+        model.addAttribute("userRole", userRole);
+    }
 }
