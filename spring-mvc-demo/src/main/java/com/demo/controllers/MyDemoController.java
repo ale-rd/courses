@@ -12,11 +12,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.demo.model.Account;
 
+/*
+ * aNewAccount será un atributo de sesión y perdurará en el modelo mientras ésta dure.
+ */
 @Controller
+@SessionAttributes("aNewAccount")
 public class MyDemoController {
     
     private String[] quotes = {"A random quote 1", "quote 2", "quote 3"};
@@ -107,22 +112,35 @@ public class MyDemoController {
      * Se ejecuta antes que cualquier method handler de este controller.
      * 
      */
+//    Lo dejo comentado a modo de ejemplo.
+//    @ModelAttribute
+//    public void setUserDetails(@RequestParam("userName") String userName, Model model) {
+//        model.addAttribute("userName", userName);
+//        
+//        // Simulate going off and retrieving role based on userName
+//        String userRole = "undefined";
+//        if("Andy".equals(userName)) {
+//            userRole = "Student";
+//            
+//        }else if("Jhon".equals(userName)) {
+//            userRole = "Teacher";
+//            
+//        }else if("Allana".equals(userName)) {
+//            userRole = "Dean";
+//        }
+//        
+//        model.addAttribute("userRole", userRole);
+//    }
+    
+    /**
+     * 
+     */
     @ModelAttribute
-    public void setUserDetails(@RequestParam("userName") String userName, Model model) {
-        model.addAttribute("userName", userName);
-        
-        // Simulate going off and retrieving role based on userName
-        String userRole = "undefined";
-        if("Andy".equals(userName)) {
-            userRole = "Student";
-            
-        }else if("Jhon".equals(userName)) {
-            userRole = "Teacher";
-            
-        }else if("Allana".equals(userName)) {
-            userRole = "Dean";
+    public void addAccountToModel(Model model) {
+        System.out.println("Making sure account object is on model ");
+        if(!model.containsAttribute("aNewAccount")) {
+            Account a = new Account();
+            model.addAttribute("aNewAccount", a);
         }
-        
-        model.addAttribute("userRole", userRole);
     }
 }
