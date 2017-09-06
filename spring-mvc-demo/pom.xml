@@ -59,6 +59,13 @@
       <version>5.1.2.Final</version>
     </dependency>
     
+    <!-- UPLOAD FILE -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+    
   </dependencies>
   
   <!-- COMPILACIÓN -->
