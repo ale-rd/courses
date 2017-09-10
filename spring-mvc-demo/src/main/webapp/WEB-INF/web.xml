@@ -10,10 +10,22 @@
     <servlet-name>MyDemoApp</servlet-name>
     <!-- DispatcherServlet inherits from HttpServlet, so it's ready to deal with HTTP request/reponses -->
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param> <!-- Location of server configuration file -->
-      <param-name>contextConfigLocation</param-name>
-      <param-value>/WEB-INF/config/myDemoApp-servletConfig.xml</param-value>
-    </init-param>
+    <!-- For xml configuration -->
+<!--     <init-param> Location of server configuration file -->
+<!--       <param-name>contextConfigLocation</param-name> -->
+<!--       <param-value>/WEB-INF/config/myDemoApp-servletConfig.xml</param-value> -->
+<!--     </init-param> -->
+      <!-- Using java class configuration. -->
+      <init-param>
+        <param-name>contextClass</param-name>
+        <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+      </init-param>
+      <init-param>
+        <!-- Solo es necesario cuando configuramos con contextClass -->
+        <param-name>contextConfigLocation</param-name>
+        <param-value>com.demo.utils.AppConfig</param-value>
+      </init-param>
+
   </servlet>
   
   <servlet-mapping>

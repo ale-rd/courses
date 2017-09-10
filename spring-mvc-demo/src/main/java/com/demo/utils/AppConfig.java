@@ -22,7 +22,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public InternalResourceViewResolver getIRVR() {
         System.out.println("Setting up view resolver");
         InternalResourceViewResolver irvr = new InternalResourceViewResolver();
-        irvr.setPrefix("WEB-INF/jsP/");
+        irvr.setPrefix("WEB-INF/jsp/");
         irvr.setSuffix(".jsp");
         return irvr;
     }
