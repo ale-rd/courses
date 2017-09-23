@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<title>Expressions</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<div ng-app="" ng-init="myCol='lightblue'">
+<!-- cambiar css con expresión -->
+<input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
+
+</div>

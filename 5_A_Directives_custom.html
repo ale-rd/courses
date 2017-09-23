@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Directiva custom</title>
+	<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+	<!-- El nombre se define en camel case, pero en la view se lo invoca con guiones -->
+	<!-- Nota de w3s:
+		You can invoke a directive by using:
+			* Element name
+			* Attribute
+			* Class
+			* Comment
+-->
+	<h5>Directive as element name</h5>
+	<w3-test-directive></w3-test-directive>
+
+	<h5>Directive as atribute</h5>
+	<div w3-test-directive></div>
+
+	<h5>Directive as class</h5>
+	<p>Para que funcione hay que agregarle <strong>restrict : "C"</strong> a la directiva,</p>
+	<div class="w3-test-directive"></div>
+
+	<h5>Directive as comment</h5>
+	<!-- directive: w3-test-directive -->
+	<blockquote> Para que funcione, en la directiva agregar <br/>
+			return { <br/>
+        restrict : "M",<br/>
+        replace : true,<br/>
+        template : "&lth1&gtMade by a directive!&lth1&gt"
+    };
+  </blockquote>
+	<script>
+	var app = angular.module("myApp", []);
+	app.directive("w3TestDirective", function() {
+	    return {
+	        template : "<h1>Made by a directive!</h1>"
+	    };
+	});
+	</script>
+
+</body>
+</html>
