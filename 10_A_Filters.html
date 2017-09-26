@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Filters</title>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="personCtrl">
+		<p>lastName | uppercase: {{ lastName | uppercase }}</p>
+		<p>lastName | lowerCase: {{ lastName | lowercase }}</p>
+	</div>
+	<br>
+
+	<h4>Filtros disponibles</h4>
+	<ul>
+    <li><code>currency</code> Format a number to a currency format.</li>
+    <li><code>date</code> Format a date to a specified format.</li>
+    <li><code>filter</code> Select a subset of items from an array.</li>
+    <li><code>json</code> Format an object to a JSON string.</li>
+    <li><code>limitTo</code> Limits an array/string, into a specified number of elements/characters.</li>
+    <li><code>lowercase</code> Format a string to lower case.</li>
+    <li><code>number</code> Format a number to a string.</li>
+    <li><code>orderBy</code> Orders an array by an expression.</li>
+    <li><code>uppercase</code> Format a string to upper case.</li>
+</ul>
+
+	<script>
+		angular.module('myApp', []).controller('personCtrl', function($scope){
+			$scope.lastName = 'Pepe';
+		});
+	</script>
+</body>
+</html>
